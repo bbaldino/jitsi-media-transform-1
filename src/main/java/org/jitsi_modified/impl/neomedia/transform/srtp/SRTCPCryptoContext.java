@@ -16,7 +16,6 @@
 package org.jitsi_modified.impl.neomedia.transform.srtp;
 
 import org.bouncycastle.crypto.params.*;
-import org.jitsi.bccontrib.params.*;
 import org.jitsi.impl.neomedia.transform.srtp.*;
 import org.jitsi.rtp.*;
 import org.jitsi.rtp.rtcp.*;
@@ -178,14 +177,14 @@ public class SRTCPCryptoContext
                 mac.init(new KeyParameter(authKey));
                 break;
 
-            case SRTPPolicy.SKEIN_AUTHENTICATION:
-                // Skein MAC uses number of bits as MAC size, not just bytes
-                mac.init(
-                        new ParametersForSkein(
-                                new KeyParameter(authKey),
-                                ParametersForSkein.Skein512,
-                                tagStore.length * 8));
-                break;
+//            case SRTPPolicy.SKEIN_AUTHENTICATION:
+//                // Skein MAC uses number of bits as MAC size, not just bytes
+//                mac.init(
+//                        new ParametersForSkein(
+//                                new KeyParameter(authKey),
+//                                ParametersForSkein.Skein512,
+//                                tagStore.length * 8));
+//                break;
             }
 
             Arrays.fill(authKey, (byte) 0);

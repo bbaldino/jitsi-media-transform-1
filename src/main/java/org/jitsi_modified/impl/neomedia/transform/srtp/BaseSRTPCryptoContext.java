@@ -17,7 +17,6 @@ package org.jitsi_modified.impl.neomedia.transform.srtp;
 
 import org.bouncycastle.crypto.*;
 import org.bouncycastle.crypto.engines.*;
-import org.jitsi.bccontrib.macs.*;
 import org.jitsi.impl.neomedia.transform.srtp.*;
 import org.jitsi.rtp.*;
 import org.jitsi.rtp.ByteArrayBuffer;
@@ -230,11 +229,11 @@ class BaseSRTPCryptoContext
             tagStore = new byte[mac.getMacSize()];
             break;
 
-        case SRTPPolicy.SKEIN_AUTHENTICATION:
-            authKey = new byte[policy.getAuthKeyLength()];
-            mac = new SkeinMac();
-            tagStore = new byte[policy.getAuthTagLength()];
-            break;
+//        case SRTPPolicy.SKEIN_AUTHENTICATION:
+//            authKey = new byte[policy.getAuthKeyLength()];
+//            mac = new SkeinMac();
+//            tagStore = new byte[policy.getAuthTagLength()];
+//            break;
 
         case SRTPPolicy.NULL_AUTHENTICATION:
         default:
