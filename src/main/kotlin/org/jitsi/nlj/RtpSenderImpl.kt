@@ -32,6 +32,7 @@ import org.jitsi.nlj.transform.node.ConsumerNode
 import org.jitsi.nlj.transform.node.Node
 import org.jitsi.nlj.transform.node.PacketCacher
 import org.jitsi.nlj.transform.node.PacketStreamStatsNode
+import org.jitsi.nlj.transform.node.PcapWriter
 import org.jitsi.nlj.transform.node.SrtpTransformerNode
 import org.jitsi.nlj.transform.node.outgoing.AbsSendTime
 import org.jitsi.nlj.transform.node.outgoing.OutgoingStatisticsTracker
@@ -145,6 +146,7 @@ class RtpSenderImpl(
                 packetInfo
             }
             node(rtcpSrUpdater)
+            node(PcapWriter(logger, "/tmp/$id-sent-rtcp.pcap"))
             node(srtcpEncryptWrapper)
             node(packetStreamStats.createNewNode())
             node(outputPipelineTerminationNode)
